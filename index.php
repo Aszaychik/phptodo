@@ -1,6 +1,11 @@
 <?php
 $nickName = "As Zaychik";
 
+function saveData($waifuList){
+  file_put_contents('waifuList.txt', serialize($waifuList));
+  header('Location:index.php');
+}
+
 $waifuList = [];
 
 if(file_exists('waifuList.txt')){
@@ -15,14 +20,12 @@ if(isset($_POST['name']) && isset($_POST['age'])){
     "name" => $nameInput,
     "age" => $ageInput
   ];
-  file_put_contents('waifuList.txt', serialize($waifuList));
-  header('Location:index.php');
+  saveData($waifuList);
 }
 
 if(isset($_GET['delete'])){
   unset($waifuList[$_GET['key']]);
-  file_put_contents('waifuList.txt', serialize($waifuList));
-  header('Location:index.php');
+  saveData($waifuList);
 }
 
 ?>
