@@ -1,0 +1,48 @@
+*,
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin-top: 120px;
+}
+
+form fieldset {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  gap: 10px;
+}
+
+form fieldset label {
+  text-transform: capitalize;
+  margin-top: 12px;
+}
+
+form fieldset input {
+  padding: 4px;
+}
+
+h2 {
+  margin-top: 120px;
+  margin-bottom: 24px;
+}
+
+table {
+  border-spacing: 0px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+th,
+td {
+  padding: 4px;
+}

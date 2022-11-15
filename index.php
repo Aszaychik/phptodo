@@ -18,14 +18,17 @@ $waifuList = [
 </head>
 <body>
   <form action="">
-    <label for="username">username</label>
-    <input type="text" name="username" id="username" placeholder="<?= $nickName;?>">
-    <label for="password">password</label>
-    <input type="password" name="password" id="password" placeholder="********">
+    <fieldset>
+      <h1 align='center'>Input Waifu List</h1>
+      <label for="name">name</label>
+      <input type="text" name="name" id="name" placeholder="<?= $nickName;?>">
+      <label for="age">age</label>
+      <input type="number" name="age" id="age" placeholder="">
+    </fieldset>
   </form>
   
+  <h2 align='center'>Waifu List</h2>
   <table border="1" >
-    <h2>Waifu List</h2>
     <thead>
     <tr>
         <th>Name</th>
