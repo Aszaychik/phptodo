@@ -19,6 +19,11 @@ if(isset($_POST['name']) && isset($_POST['age'])){
   header('Location:index.php');
 }
 
+if(isset($_GET['delete'])){
+  unset($waifuList[$_GET['key']]);
+  file_put_contents('waifuList.txt', serialize($waifuList));
+  header('Location:index.php');
+}
 
 ?>
 
@@ -56,17 +61,17 @@ if(isset($_POST['name']) && isset($_POST['age'])){
       <?php
       
       $i = 0;
-      foreach ($waifuList as $waifu) {
+      foreach ($waifuList as $key => $value) {
       $i++;
       ?>
       <tr>
         <td><?= $i;?></td>
-        <td><?= $waifu["name"];?></td>
-        <?php if($waifu["age"] == null){
-          $waifu["age"] = "?";
+        <td><?= $value["name"];?></td>
+        <?php if($value["age"] == null){
+          $value["age"] = "?";
         };?>
-        <td><?= $waifu["age"];?></td>
-        <td><a href="">X</a></td>
+        <td><?= $value["age"];?></td>
+        <td><a href="index.php?delete=1&key=<?= $key;?>" onclick="return confirm('Delete character from Waifu List ?')">X</a></td>
       </tr>
       <?php 
       };?>
