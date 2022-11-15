@@ -1,12 +1,21 @@
 <?php
 $nickName = "As Zaychik";
 
+$waifuList = [];
+
+if(file_exists('waifuList.txt')){
+  $file = file_get_contents('waifuList.txt');
+  $waifuList = unserialize($file);
+}
+
 if(isset($_POST['name']) && isset($_POST['age'])){
   $nameInput = $_POST['name'];
   $ageInput = $_POST['age'];
-  $waifuList = [
-    ["name" => $nameInput, "age" => $ageInput]
+  $waifuList[] = [
+    "name" => $nameInput,
+    "age" => $ageInput
   ];
+  file_put_contents('waifuList.txt', serialize($waifuList));
 }
 
 
