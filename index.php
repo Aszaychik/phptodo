@@ -16,6 +16,7 @@ if(isset($_POST['name']) && isset($_POST['age'])){
     "age" => $ageInput
   ];
   file_put_contents('waifuList.txt', serialize($waifuList));
+  header('Location:index.php');
 }
 
 
