@@ -1,9 +1,14 @@
 <?php
 $nickName = "As Zaychik";
-$waifuList = [
-  ["id" => 1,"name" => "Onikata Kayoko", "age" => 18],
-  ["id" => 2,"name" => "Angelina Ajimu", "age" => null],
-];
+
+if(isset($_POST['name']) && isset($_POST['age'])){
+  $nameInput = $_POST['name'];
+  $ageInput = $_POST['age'];
+  $waifuList = [
+    ["name" => $nameInput, "age" => $ageInput]
+  ];
+}
+
 
 ?>
 
@@ -17,33 +22,41 @@ $waifuList = [
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <form action="">
+  <form action="" method="POST">
     <fieldset>
       <h1 align='center'>Input Waifu List</h1>
       <label for="name">name</label>
       <input type="text" name="name" id="name" placeholder="<?= $nickName;?>">
       <label for="age">age</label>
       <input type="number" name="age" id="age" placeholder="">
+      <button type="submit">Input</button>
     </fieldset>
   </form>
-  
   <h2 align='center'>Waifu List</h2>
   <table border="1" >
     <thead>
-    <tr>
+      <tr>
+        <th>No</th>
         <th>Name</th>
         <th>Age</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
-      <?php 
-      foreach ($waifuList as $waifu) {?>
+      <?php
+      
+      $i = 0;
+      foreach ($waifuList as $waifu) {
+      $i++;
+      ?>
       <tr>
+        <td><?= $i;?></td>
         <td><?= $waifu["name"];?></td>
         <?php if($waifu["age"] == null){
           $waifu["age"] = "?";
         };?>
         <td><?= $waifu["age"];?></td>
+        <td><a href="">X</a></td>
       </tr>
       <?php 
       };?>

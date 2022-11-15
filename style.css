@@ -29,6 +29,13 @@ form fieldset label {
 
 form fieldset input {
   padding: 4px;
+  margin-bottom: 4px;
+}
+
+form fieldset button {
+  padding: 4px;
+  width: 50%;
+  margin: 0 auto;
 }
 
 h2 {
@@ -44,5 +51,16 @@ table {
 
 th,
 td {
-  padding: 4px;
+  padding: 8px;
+  text-transform: capitalize;
+}
+
+a:link {
+  text-decoration: none;
+  color: red;
+  text-shadow: 10px 10px 0 0 black;
+}
+
+a:link {
+  color: red;
 }
